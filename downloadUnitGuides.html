@@ -1,0 +1,35 @@
+<!-- Wei-Chi Victor Huang 27808319 19/10/2019 -->
+<!-- Undegraduate Engineering Course Mapper -->
+<!-- downloadUnitGuides.html -->
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    // use http://myjson.com/ to upload json data and paste url below e.g. https://api.myjson.com/bins/wenbo 
+    $.getJSON('https://api.myjson.com/bins/wenbo', function(data){
+        var units = [];
+        var currentYear = new Date().getFullYear();
+        
+        $.each(data, function(key,val) {
+            units.push(val);
+        })
+        
+        units.forEach(function (unit) {
+
+            // Semester 1
+            var url = `https://unitguidemanager.monash.edu/publishedPdf?unitCode=${unit}&tpCode=S1-01&tpYear=${currentYear}`
+            window.open(url);
+            setTimeout(1000);
+
+            // Semester 2
+            var url = `https://unitguidemanager.monash.edu/publishedPdf?unitCode=${unit}&tpCode=S2-01&tpYear=${currentYear}`
+            window.open(url);
+            setTimeout(1000);
+        })
+    })
+</script>
+</div>
+</body>
+</html>
